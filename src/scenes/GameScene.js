@@ -11,7 +11,7 @@ const BOMB_KEY = "bomb";
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super("game-scene");
-    // We added a player instance property and set it to
+    // We added all instance properties and set it to
     // undefined in the constructor.This is not strictly
     // necessary.Declaring all instance properties before
     // using them makes it easier to see all the properties
@@ -171,7 +171,6 @@ export default class GameScene extends Phaser.Scene {
       this.player.setVelocityY(-330);
     }
   }
-  // @ts-ignore
   // eslint-disable-next-line no-unused-vars
   hitBomb(player, bomb) {
     this.physics.pause();
