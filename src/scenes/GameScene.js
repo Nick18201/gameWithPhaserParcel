@@ -132,6 +132,7 @@ export default class GameScene extends Phaser.Scene {
     if (this.stars.countActive(true) === 0) {
       //  A new batch of stars to collect
       this.stars.children.iterate((child) => {
+        // @ts-ignore
         child.enableBody(true, child.x, 0, true, true);
       });
     }
@@ -170,6 +171,8 @@ export default class GameScene extends Phaser.Scene {
       this.player.setVelocityY(-330);
     }
   }
+  // @ts-ignore
+  // eslint-disable-next-line no-unused-vars
   hitBomb(player, bomb) {
     this.physics.pause();
 
