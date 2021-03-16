@@ -1,39 +1,37 @@
-import Phaser from 'phaser'
+// This page is for demo purpose, it is not integrated in the main.js
 
-export default class HelloWorldScene extends Phaser.Scene
-{
-	constructor()
-	{
-		super('hello-world')
-	}
+import Phaser from "phaser";
 
-	preload()
-    {
-        this.load.setBaseURL('http://labs.phaser.io')
+export default class HelloWorldScene extends Phaser.Scene {
+  constructor() {
+    super("hello-world");
+  }
 
-        this.load.image('sky', 'assets/skies/space3.png')
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-        this.load.image('red', 'assets/particles/red.png')
-    }
+  preload() {
+    this.load.setBaseURL("http://labs.phaser.io");
 
-    create()
-    {
-        this.add.image(400, 300, 'sky')
+    this.load.image("sky", "assets/skies/space3.png");
+    this.load.image("logo", "assets/sprites/phaser3-logo.png");
+    this.load.image("red", "assets/particles/red.png");
+  }
 
-        const particles = this.add.particles('red')
+  create() {
+    this.add.image(400, 300, "sky");
 
-        const emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        })
+    const particles = this.add.particles("red");
 
-        const logo = this.physics.add.image(400, 100, 'logo')
+    const emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 1, end: 0 },
+      blendMode: "ADD",
+    });
 
-        logo.setVelocity(100, 200)
-        logo.setBounce(1, 1)
-        logo.setCollideWorldBounds(true)
+    const logo = this.physics.add.image(400, 100, "logo");
 
-        emitter.startFollow(logo)
-    }
+    logo.setVelocity(100, 200);
+    logo.setBounce(1, 1);
+    logo.setCollideWorldBounds(true);
+
+    emitter.startFollow(logo);
+  }
 }
